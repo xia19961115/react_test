@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.less'
 import { useNavigate } from 'react-router-dom'
-export default function Found404() {
+const Found404 = () => {
   const navigate = useNavigate()
   function handleGoHome() {
     navigate('/login')
@@ -26,3 +26,4 @@ export default function Found404() {
     </div>
   )
 }
+export default Found404

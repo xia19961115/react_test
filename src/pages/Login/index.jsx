@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import "./index.less";
-export default function Login() {
+const Login =() => {
   const navigate = useNavigate();
   function goPage(val) {
     return () => {
@@ -22,3 +22,4 @@ export default function Login() {
     </div>
   );
 }
+export default Login

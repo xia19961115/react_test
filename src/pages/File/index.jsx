@@ -7,8 +7,9 @@
  */
 import React from 'react'
 
-export default function File() {
+const File = () => {
   return (
     <div>File</div>
   )
 }
+export default File

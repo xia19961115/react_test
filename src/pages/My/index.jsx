@@ -7,8 +7,9 @@
  */
 import React from 'react'
 
-export default function My() {
+const My = () => {
   return (
     <div>My</div>
   )
 }
+export default My
