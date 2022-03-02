@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:40:42
- * @LastEditTime: 2022-03-02 13:07:16
+ * @LastEditTime: 2022-03-02 16:19:31
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -27,7 +27,7 @@ export default function NavBar(porps) {
   let [openKeys,setOpenKeys] =React.useState(sessionStorage.getItem('openKeys') ?  sessionStorage.getItem('openKeys') : '企业名')
   function arrayTransfer(data) {
     const listArr = [];
-    data.forEach(function (el,index) {
+    data.forEach((el) => {
       for (let i = 0; i < listArr.length; i++) {
         if (listArr[i].title === el.title) {
           listArr[i].listInfo.push({
@@ -40,7 +40,6 @@ export default function NavBar(porps) {
         }
       }
       listArr.push({
-        index,
         title: el.title,
         listInfo: [
           {

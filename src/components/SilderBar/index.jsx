@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-02 13:35:09
+ * @LastEditTime: 2022-03-02 17:27:20
  */
 import React from "react";
 import { Layout } from "antd";
@@ -20,9 +20,20 @@ export default function SilderBar() {
   const { pathname } = useLocation();
   const router = useRoutes(routes);
   const BaseRoter = useRoutes(BaseRoute);
-  const path = routes.filter((item) => item.path !=='/');
-  const arr = routes.map((item) => item.path);
+  let [path,setPath] = React.useState([])
+  let [arr,setArr] = React.useState([])
   const isLogin = true
+  // 检测权限ID的变化
+  React.useEffect(() => {
+    if (!localStorage.getItem('roleList')) {
+      navigate('/login')
+      return
+    }
+    setPath([...path,...routes.filter((item) => localStorage.getItem('roleList').includes(item.roleId))])
+    console.log(path)
+    setArr([...arr,...routes.map((item) => item.path)])
+  // eslint-disable-next-line
+  },[localStorage.getItem('roleList')])
   React.useEffect(() => {
     if (!isLogin && pathname !== '/login') {
       navigate('/login')
