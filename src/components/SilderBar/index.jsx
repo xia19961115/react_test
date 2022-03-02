@@ -7,9 +7,9 @@
  */
 import React from "react";
 import { Layout } from "antd";
-import { useNavigate, useRoutes, Outlet, useLocation } from "react-router-dom";
+import { Route,Routes, useNavigate, useRoutes, Outlet, useLocation } from "react-router-dom";
 import routes from "@/routes/index.js";
-import BaseRoute from "@/routes/base.js";
+// import BaseRoute from "@/routes/base.js";
 import NavBar from "@/components/Nav/Bar";
 import NavHead from "@/components/Nav/Head";
 import NavFooter from "@/components/Nav/Footer";
@@ -19,7 +19,7 @@ export default function SilderBar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const router = useRoutes(routes);
-  const BaseRoter = useRoutes(BaseRoute);
+  // const BaseRoter = useRoutes(BaseRoute);
   let [path,setPath] = React.useState([])
   let [arr,setArr] = React.useState([])
   const isLogin = true
@@ -59,9 +59,9 @@ export default function SilderBar() {
     }
   // eslint-disable-next-line
   },[pathname])
-  return arr.includes(pathname) ? (
+  return (
     <Layout style={{ height: "100vh" }}>
-      <NavBar path={path}/>
+      <NavBar path={routes}/>
       <Layout>
         <NavHead />
         <Content style={{ margin: "24px 16px 0", overflow: "auto" }}>
@@ -69,17 +69,19 @@ export default function SilderBar() {
             className="site-layout-background"
             style={{ padding: 24, minHeight: "100%", backgroundColor: "#fff" }}
           >
-            {router}
-            <Outlet />
+            <Routes>
+                {
+                  routes.map(item => {
+                    return (
+                      <Route index={item.index} path={item.path} element={item.element} key={item.path} ></Route>
+                    )
+                  })
+                }
+            </Routes>
           </div>
         </Content>
         <NavFooter />
       </Layout>
     </Layout>
-  ) : (
-    <div>
-      {BaseRoter}
-      <Outlet />
-    </div>
-  );
+  )
 }

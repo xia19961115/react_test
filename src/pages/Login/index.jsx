@@ -34,7 +34,12 @@ const Login =() => {
     sessionStorage.clear()
   },[])
   const handleInputChange =(val) => {
-    console.log(val);
+    if (val.username==='' && val.password=== '') {
+      message.error('填写完整信息再提交')
+      return
+    }
+      localStorage.setItem('roleList','1')
+      navigate('/main');
   }
   return (
     <div className="login">

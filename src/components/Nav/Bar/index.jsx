@@ -59,6 +59,8 @@ export default function NavBar(porps) {
     sessionStorage.setItem('openKeys',el.title)
     setOpenKeys(el.title)
     setSelected(el.path)
+    console.log(el.path);
+    debugger
     navigate(el.path)
   } 
   React.useEffect(()=>{

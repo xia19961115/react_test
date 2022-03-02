@@ -7,11 +7,23 @@
  */
 // import './App.less';
 import React from 'react'
-import SiderDemo from '@/components/SilderBar/index.jsx'
+import {Route,Routes, Navigate} from 'react-router-dom'
+import Login from '@/pages/Login'
+import Found404 from "@/pages/Foud404"
+import Main from './pages/Main';
+// import SiderDemo from '@/components/SilderBar/index.jsx'
 function App() {
   return (
     <div className="App">
-      <SiderDemo />
+      
+      {/* <SiderDemo /> */}
+      <Routes>
+        <Route path='/login' element={<Login />}></Route>
+        {/* <SiderDemo path='/home'/> */}
+        <Route path='/main' element={<Main />}></Route>
+        <Route path='*' element={<Found404 />}></Route>
+        <Route path='/' element={<Navigate  to='/login'/>}></Route>
+      </Routes>
     </div>
   );
 }
