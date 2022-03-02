@@ -3,18 +3,29 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-02 11:00:03
- * @LastEditTime: 2022-03-02 18:38:10
+ * @LastEditTime: 2022-03-02 20:13:39
  */
 import React from "react";
 // import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import { Form, Input, Button } from 'antd';
+import {  message,Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import "./index.less";
 const Login =() => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  // const [username,setusername] = React.useState('')
+  // const [password,setpassword] = React.useState('')
+  const [userLogin,setUserLogin] = React.useState({
+    username: '',
+    password: ''
+  })
   function goPage(val) {
     return () => {
+      if (userLogin.username==='' && userLogin.password=== '') {
+        message.error('填写完整信息再提交')
+        return
+      }
+      console.log(userLogin);
       localStorage.setItem('roleList','1')
       navigate(val);
     };
@@ -22,10 +33,24 @@ const Login =() => {
   React.useEffect(() =>{
     sessionStorage.clear()
   },[])
+  // const handleInputChange =(val,e) => {
+    // console.log(val);
+    // console.log(e);
+    // if (val === 'username') {
+    //   setusername(e.target.value,() =>{ console.log(username)})
+    // }
+    // if (val === 'password') {
+    //   setpassword(e.target.value,() =>{ console.log(password)})
+    // }
+  // }
+  // React.useEffect(()=> {
+  //   console.log(userLogin);
+  // // eslint-disable-next-line
+  // },[userLogin])
   return (
     <div className="login">
       <div className="login-center">
-        <div></div>
+        <div className="login-center-title">登录</div>
       <Form
       name="normal_login"
       className="login-form"
@@ -36,21 +61,22 @@ const Login =() => {
         name="username"
         rules={[{ required: true, message: 'Please input your Username!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input onChange={(e)=>setUserLogin({...userLogin,...{username:e.target.value}})} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
       </Form.Item>
       <Form.Item
         name="password"
         rules={[{ required: true, message: 'Please input your Password!' }]}
       >
         <Input.Password
+          onChange={(e)=>setUserLogin({...userLogin,...{password:e.target.value}})}
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
         />
       </Form.Item>
 
-      <Form.Item style={{width:'100%',margin:'0 auto'}}>
-        <Button type="primary" htmlType="submit" onClick={goPage("/home")} className="login-form-button">登录</Button>
+      <Form.Item>
+        <Button style={{width:'100%',margin:'0 auto'}} type="primary" htmlType="submit" onClick={goPage("/home")} className="login-form-button">登录</Button>
       </Form.Item>
     </Form>
       </div>
