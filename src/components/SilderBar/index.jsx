@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-02 12:11:27
+ * @LastEditTime: 2022-03-02 12:24:33
  */
 import React from "react";
 import { Layout } from "antd";
@@ -24,13 +24,17 @@ export default function SilderBar() {
   const BaseRoter = useRoutes(BaseRoute);
   const path = routes.filter((item) => item.path !=='/');
   const arr = routes.map((item) => item.path);
-  const isLogin = false
+  const isLogin = true
   React.useEffect(() => {
     if (!isLogin) {
       navigate('/login')
       if (pathname === '/login') {
         return
       }
+    } else{
+      sessionStorage.setItem('bar',pathname)
+      let a = routes.find(item => item.path === pathname)
+      sessionStorage.setItem('openKeys',a.title)
     }
   // eslint-disable-next-line
   },[pathname])
