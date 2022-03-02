@@ -25,33 +25,23 @@ const Login =() => {
         message.error('填写完整信息再提交')
         return
       }
-      console.log(userLogin);
-      localStorage.setItem('roleList','1')
-      navigate(val);
+      // console.log(userLogin);
+      // localStorage.setItem('roleList','1')
+      // navigate(val);
     };
   }
   React.useEffect(() =>{
     sessionStorage.clear()
   },[])
-  // const handleInputChange =(val,e) => {
-    // console.log(val);
-    // console.log(e);
-    // if (val === 'username') {
-    //   setusername(e.target.value,() =>{ console.log(username)})
-    // }
-    // if (val === 'password') {
-    //   setpassword(e.target.value,() =>{ console.log(password)})
-    // }
-  // }
-  // React.useEffect(()=> {
-  //   console.log(userLogin);
-  // // eslint-disable-next-line
-  // },[userLogin])
+  const handleInputChange =(val) => {
+    console.log(val);
+  }
   return (
     <div className="login">
       <div className="login-center">
         <div className="login-center-title">登录</div>
       <Form
+      onFinish={handleInputChange}
       name="normal_login"
       className="login-form"
       size={'large'}
