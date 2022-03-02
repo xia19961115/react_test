@@ -23,7 +23,7 @@ export default function NavBar(porps) {
   let { path } = porps;
   const navigate = useNavigate();
   let [arr,setArr] = React.useState([])
-  let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/home')
+  let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/main/home')
   let [openKeys,setOpenKeys] =React.useState(sessionStorage.getItem('openKeys') ?  sessionStorage.getItem('openKeys') : '企业名')
   function arrayTransfer(data) {
     const listArr = [];
@@ -55,12 +55,11 @@ export default function NavBar(porps) {
     return listArr;
   }
   const handleGoPage = (el) => {
-    sessionStorage.setItem('bar',el.path)
+    sessionStorage.setItem('bar','/main/'+el.path)
     sessionStorage.setItem('openKeys',el.title)
     setOpenKeys(el.title)
-    setSelected(el.path)
+    setSelected('/main/'+ el.path)
     console.log(el.path);
-    debugger
     navigate(el.path)
   } 
   React.useEffect(()=>{
@@ -87,7 +86,7 @@ export default function NavBar(porps) {
                 key={item.title}
                 title={item.title}>
                 {
-                  item.listInfo.map(el => <Menu.Item onClick={()=>handleGoPage(el)} key={el.path}>{el.routeName}</Menu.Item>)
+                  item.listInfo.map(el => <Menu.Item onClick={()=>handleGoPage(el)} key={'/main/'+ el.path}>{el.routeName}</Menu.Item>)
                 }
               </SubMenu>
             )
