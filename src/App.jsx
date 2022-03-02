@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />}></Route>
         {/* <SiderDemo path='/home'/> */}
-        <Route path='/main' element={<Main />}></Route>
+        <Route path='/main/*' element={<Main />}></Route>
         {/* <Route path='*' element={<Found404 />}></Route> */}
         <Route path='/' element={<Navigate  to='/login'/>}></Route>
       </Routes>

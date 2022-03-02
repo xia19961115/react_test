@@ -13,7 +13,7 @@ import routes from "@/routes/index.js";
 import NavBar from "@/components/Nav/Bar";
 import NavHead from "@/components/Nav/Head";
 import NavFooter from "@/components/Nav/Footer";
-import Home from "../../pages/Home";
+// import Home from "../../pages/Home";
 const { Content } = Layout;
 
 export default function SilderBar() {
@@ -71,14 +71,14 @@ export default function SilderBar() {
             style={{ padding: 24, minHeight: "100%", backgroundColor: "#fff" }}
           >
             <Routes>
-              <Route path="/main/home" element={<Home />}></Route>
-                {/* {
+              {/* <Route path="/home" element={<Home />}></Route> */}
+                {
                   routes.map(item => {
                     return (
-                      <Route index={item.index} path={item.path} element={item.element} key={item.path} ></Route>
+                      <Route path={item.path} element={item.element} key={item.path} ></Route>
                     )
                   })
-                } */}
+                }
             </Routes>
           </div>
         </Content>

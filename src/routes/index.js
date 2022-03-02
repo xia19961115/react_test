@@ -14,28 +14,28 @@ import File from "../pages/File"
 // import {Navigate} from 'react-router-dom'
 const routes = [
     {
-        path:'/main/home',
+        path:'home',
         routeName:'主页',
         title:'企业名',
         roleId:'1',
         element:<Home />
     },
     {
-        path:'/main/about',
+        path:'about',
         routeName:'关于',
         title:'商家库',
         roleId:'1',
         element:<About />
     },
     {
-        path:'/main/my',
+        path:'my',
         routeName:'个人中心',
         title:'商家库',
         roleId:'1',
         element:<My />
     },
     {
-        path:'/main/file',
+        path:'file',
         routeName:'档案',
         title:'数据库',
         roleId:'1',
