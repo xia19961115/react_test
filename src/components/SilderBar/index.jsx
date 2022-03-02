@@ -3,10 +3,11 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-01 15:51:50
+ * @LastEditTime: 2022-03-02 12:11:27
  */
+import React from "react";
 import { Layout } from "antd";
-import { useRoutes, Outlet, useLocation } from "react-router-dom";
+import { useNavigate, useRoutes, Outlet, useLocation } from "react-router-dom";
 import routes from "@/routes/index.js";
 import BaseRoute from "@/routes/base.js";
 import NavBar from "@/components/Nav/Bar";
@@ -15,14 +16,24 @@ import NavFooter from "@/components/Nav/Footer";
 const { Content } = Layout;
 
 export default function SilderBar() {
+  const navigate = useNavigate();
+  // eslint-disable-next-line
+  // const [isLogin,setisLogin] = React.useState(true)
   const { pathname } = useLocation();
   const router = useRoutes(routes);
   const BaseRoter = useRoutes(BaseRoute);
-  // const navigate = useNavigate();
-  // console.log(navigate);
   const path = routes.filter((item) => item.path !=='/');
   const arr = routes.map((item) => item.path);
-  // console.log(arr)
+  const isLogin = false
+  React.useEffect(() => {
+    if (!isLogin) {
+      navigate('/login')
+      if (pathname === '/login') {
+        return
+      }
+    }
+  // eslint-disable-next-line
+  },[pathname])
   return arr.includes(pathname) ? (
     <Layout style={{ height: "100vh" }}>
       <NavBar path={path}/>
