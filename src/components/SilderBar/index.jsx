@@ -7,18 +7,19 @@
  */
 import React from "react";
 import { Layout } from "antd";
-import { Route,Routes, useNavigate, useRoutes, Outlet, useLocation } from "react-router-dom";
+import { Route,Routes, useNavigate, useLocation } from "react-router-dom";
 import routes from "@/routes/index.js";
 // import BaseRoute from "@/routes/base.js";
 import NavBar from "@/components/Nav/Bar";
 import NavHead from "@/components/Nav/Head";
 import NavFooter from "@/components/Nav/Footer";
+import Home from "../../pages/Home";
 const { Content } = Layout;
 
 export default function SilderBar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const router = useRoutes(routes);
+  // const router = useRoutes(routes);
   // const BaseRoter = useRoutes(BaseRoute);
   let [path,setPath] = React.useState([])
   let [arr,setArr] = React.useState([])
@@ -70,13 +71,14 @@ export default function SilderBar() {
             style={{ padding: 24, minHeight: "100%", backgroundColor: "#fff" }}
           >
             <Routes>
-                {
+              <Route path="/main/home" element={<Home />}></Route>
+                {/* {
                   routes.map(item => {
                     return (
                       <Route index={item.index} path={item.path} element={item.element} key={item.path} ></Route>
                     )
                   })
-                }
+                } */}
             </Routes>
           </div>
         </Content>

@@ -34,7 +34,7 @@ export default function NavBar(porps) {
             title: el.title,
             path: el.path,
             routeName:el.routeName,
-            component: el.component
+            component: el.element
           });
           return;
         }
@@ -46,7 +46,7 @@ export default function NavBar(porps) {
             title: el.title,
             path: el.path,
             routeName:el.routeName,
-            component: el.component
+            component: el.element
           },
         ],
       });
