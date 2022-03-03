@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-02 11:00:03
- * @LastEditTime: 2022-03-02 20:13:39
+ * @LastEditTime: 2022-03-03 10:49:41
  */
 import React from "react";
 // import { Button } from "antd";
@@ -39,7 +39,7 @@ const Login =() => {
       return
     }
       localStorage.setItem('roleList','1')
-      navigate('/main');
+      navigate('/main/home');
   }
   return (
     <div className="login">

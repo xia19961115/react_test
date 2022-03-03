@@ -1,6 +1,18 @@
 .App {
-  display: flex;
-  &-right{
-    flex: 1;
+  ::-webkit-scrollbar {
+    //滚动条的宽度
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #e5e2de;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: none;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent !important;
   }
 }
