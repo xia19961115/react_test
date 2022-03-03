@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-03 20:14:14
+ * @LastEditTime: 2022-03-03 20:44:55
  */
 import React from "react";
 import { Layout,Breadcrumb } from "antd";
@@ -19,6 +19,7 @@ export default function SilderBar(props) {
   const navigate = useNavigate();
   let [bar,setBar] = React.useState('')
   let [openKeys,setOpenKeys] = React.useState('')
+  let [openName,setOpenName] = React.useState('')
   const { pathname } = useLocation();
   React.useEffect(() => {
     console.log(pathname)
@@ -33,6 +34,7 @@ export default function SilderBar(props) {
     sessionStorage.setItem('openKeys',a?.title)
     setBar(pathname)
     setOpenKeys(a.title)
+    setOpenName(a.routeName)
   // eslint-disable-next-line
   },[pathname])
   return (
@@ -41,11 +43,12 @@ export default function SilderBar(props) {
       <Layout>
         <NavHead />
         <Content style={{ margin: "10px 16px 0", overflow: "auto" }}>
+          {/* 面包屑 */}
           <Breadcrumb style={{ margin: '8px 0 ' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>{openKeys}</Breadcrumb.Item>
+            <Breadcrumb.Item>{openName}</Breadcrumb.Item>
           </Breadcrumb>
+          {/* 主体内容 */}
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: "calc(100% - 50px)", backgroundColor: "#fff", overflow: "auto" }}
