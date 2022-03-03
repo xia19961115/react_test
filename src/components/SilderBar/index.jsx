@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-03 19:39:42
+ * @LastEditTime: 2022-03-03 20:14:14
  */
 import React from "react";
 import { Layout,Breadcrumb } from "antd";
@@ -30,7 +30,7 @@ export default function SilderBar(props) {
     sessionStorage.setItem('bar',pathname)
     let base = pathname.replace(/\/main\//gi,'')
     let a = roleRoute.find(item => item.path === base)
-    sessionStorage.setItem('openKeys',a.title)
+    sessionStorage.setItem('openKeys',a?.title)
     setBar(pathname)
     setOpenKeys(a.title)
   // eslint-disable-next-line
