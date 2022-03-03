@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:40:42
- * @LastEditTime: 2022-03-03 11:31:41
+ * @LastEditTime: 2022-03-03 19:42:19
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -20,7 +20,9 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default function NavBar(porps) {
-  let { path } = porps;
+  let { path, openkeys, bar } = porps;
+  console.log('============',openkeys);
+  console.log('=============', bar);
   const navigate = useNavigate();
   let [arr,setArr] = React.useState([])
   let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/main/home')
@@ -51,7 +53,7 @@ export default function NavBar(porps) {
         ],
       });
     });
-    console.log(listArr)
+    // console.log(listArr)
     return listArr;
   }
   const handleGoPage = (el) => {
@@ -77,8 +79,8 @@ export default function NavBar(porps) {
       <Sider className="NavBar">
         <div className="NavBar-logo">测试后台</div>
         <Menu mode="inline"
-         defaultOpenKeys={[openKeys]}
-         selectedKeys={[selected]}>
+         defaultOpenKeys={[openkeys]}
+         selectedKeys={[bar]}>
           {
             arr.map((item) =>
               <SubMenu
