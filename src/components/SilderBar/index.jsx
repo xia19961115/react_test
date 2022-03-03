@@ -16,14 +16,12 @@ const { Content } = Layout;
 
 export default function SilderBar(props) {
   const {roleRoute, rolePath } = props
-  console.log(roleRoute);
   const navigate = useNavigate();
   let [bar,setBar] = React.useState('')
   let [openKeys,setOpenKeys] = React.useState('')
   let [openName,setOpenName] = React.useState('')
   const { pathname } = useLocation();
   React.useEffect(() => {
-    console.log(pathname)
     // 监测路由变化(非法访问直接404)
     if (!rolePath.includes(pathname)) {
       navigate('/404')

@@ -21,8 +21,6 @@ const { SubMenu } = Menu;
 
 export default function NavBar(porps) {
   let { path, openkeys, bar } = porps;
-  console.log('============',openkeys);
-  console.log('=============', bar);
   const navigate = useNavigate();
   let [arr,setArr] = React.useState([])
   function arrayTransfer(data) {
@@ -52,7 +50,7 @@ export default function NavBar(porps) {
         ],
       });
     });
-    console.log(';',listArr)
+    // console.log(';',listArr)
     return listArr;
   }
   const handleGoPage = (el) => {
