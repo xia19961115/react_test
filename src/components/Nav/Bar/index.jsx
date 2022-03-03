@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:40:42
- * @LastEditTime: 2022-03-03 20:05:35
+ * @LastEditTime: 2022-03-03 20:06:39
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -57,8 +57,6 @@ export default function NavBar(porps) {
   const handleGoPage = (el) => {
     sessionStorage.setItem('bar','/main/'+el.path)
     sessionStorage.setItem('openKeys',el.title)
-    // setOpenKeys(el.title)
-    // setSelected('/main/'+ el.path)
     navigate(el.path)
   } 
   React.useEffect(()=>{
