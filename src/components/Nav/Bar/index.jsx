@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:40:42
- * @LastEditTime: 2022-03-03 19:42:19
+ * @LastEditTime: 2022-03-03 19:48:57
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -25,8 +25,8 @@ export default function NavBar(porps) {
   console.log('=============', bar);
   const navigate = useNavigate();
   let [arr,setArr] = React.useState([])
-  let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/main/home')
-  let [openKeys,setOpenKeys] =React.useState(sessionStorage.getItem('openKeys') ?  sessionStorage.getItem('openKeys') : '企业名')
+  // let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/main/home')
+  // let [openKeys,setOpenKeys] =React.useState(sessionStorage.getItem('openKeys') ?  sessionStorage.getItem('openKeys') : '企业名')
   function arrayTransfer(data) {
     const listArr = [];
     data.forEach((el) => {
@@ -59,8 +59,8 @@ export default function NavBar(porps) {
   const handleGoPage = (el) => {
     sessionStorage.setItem('bar','/main/'+el.path)
     sessionStorage.setItem('openKeys',el.title)
-    setOpenKeys(el.title)
-    setSelected('/main/'+ el.path)
+    // setOpenKeys(el.title)
+    // setSelected('/main/'+ el.path)
     navigate(el.path)
   } 
   React.useEffect(()=>{
