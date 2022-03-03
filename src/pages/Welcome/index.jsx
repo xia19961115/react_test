@@ -9,7 +9,7 @@ import React from 'react'
 
 const Welcome = () => {
   return (
-    <div>Welcome</div>
+    <div>欢迎/登录</div>
   )
 }
 export default Welcome

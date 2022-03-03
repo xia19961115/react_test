@@ -21,7 +21,7 @@ function App() {
           <Route path='/main/*' element={<Main />}></Route>
           <Route path='/404' element={<Found404 />}></Route>
           <Route path='*' element={<Found404 />}></Route>
-          <Route path='/' element={<Navigate  to='/main/home'/>}></Route>
+          <Route path='/' element={<Navigate  to='/main/welcome'/>}></Route>
         </Routes>
       </Suspense>
     </div>

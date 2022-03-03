@@ -4,12 +4,15 @@
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
  * @LastEditTime: 2022-03-03 20:37:53
+ * @ roleId :权限ID, *表示全都有
  */
 import About from "@/pages/About"
 import Home from "@/pages/Home"
 import My from '@/pages/My'
 import File from "@/pages/File"
 import Loading from "@/pages/Loading"
+import Welcome from "@/pages/Welcome"
+
 const routes = [
     {
         path:'home',
@@ -43,8 +46,13 @@ const routes = [
         path:'loading',
         routeName:'加载',
         title:'数据库',
-        roleId:'1',
+        roleId:'2',
         element:<Loading />
+    },
+    {
+        path:'welcome',
+        roleId:'*',
+        element:<Welcome />
     }
 ]
 export default routes

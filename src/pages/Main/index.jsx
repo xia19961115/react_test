@@ -9,15 +9,7 @@ import React from "react";
 import SilderBar from "@/components/SilderBar";
 import routes from "@/routes/index.js";
 import { useNavigate } from "react-router-dom";
-import Welcome from "../Welcome/index.jsx";
 export default function Main() {
-  const welcome = {
-    path: "welcome",
-    routeName:'加载',
-    title:'数据库',
-    roleId:'1',
-    element: <Welcome />,
-  };
   const navigate = useNavigate();
   // 进入权限路由先获取用户权限ID
   const roleList = localStorage.getItem("roleList");
@@ -26,12 +18,13 @@ export default function Main() {
   if (!roleList) navigate("/login");
   // 获取动态路由列表
   console.log(routes);
-  const Base = routes.filter((item) => roleList?.includes(item.roleId));
+  let Base = routes.filter((item) => roleList?.includes(item.roleId) || item.roleId === '*');
   // 无列表 直接跳登录
   if (Base.length === 0) {
     navigate("/login");
   }
-  Base.push(welcome)
+  // Base.push(welcome)
+  console.log(Base);
   // 获取所有页面的路径
   const arr = Base.map((item) => "/main/" + item.path);
   console.log(arr);
