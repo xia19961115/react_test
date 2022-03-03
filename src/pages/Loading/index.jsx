@@ -7,9 +7,9 @@
  */
 import React from 'react'
 
-const Welcome = () => {
+const Loading = () => {
   return (
-    <div>Welcome</div>
+    <div>Loading</div>
   )
 }
-export default Welcome
+export default Loading

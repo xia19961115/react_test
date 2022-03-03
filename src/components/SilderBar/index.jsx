@@ -16,6 +16,7 @@ const { Content } = Layout;
 
 export default function SilderBar(props) {
   const {roleRoute, rolePath } = props
+  console.log(roleRoute);
   const navigate = useNavigate();
   let [bar,setBar] = React.useState('')
   let [openKeys,setOpenKeys] = React.useState('')
@@ -44,7 +45,7 @@ export default function SilderBar(props) {
         <NavHead />
         <Content style={{ margin: "10px 16px 0", overflow: "auto" }}>
           {/* 面包屑 */}
-          <Breadcrumb style={{ margin: '8px 0 ' }}>
+          <Breadcrumb style={{ margin: '8px 0 '}}>
             <Breadcrumb.Item>{openKeys}</Breadcrumb.Item>
             <Breadcrumb.Item>{openName}</Breadcrumb.Item>
           </Breadcrumb>

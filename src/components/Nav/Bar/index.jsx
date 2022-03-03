@@ -28,6 +28,7 @@ export default function NavBar(porps) {
   function arrayTransfer(data) {
     const listArr = [];
     data.forEach((el) => {
+      if (el.path==='welcome') return
       for (let i = 0; i < listArr.length; i++) {
         if (listArr[i].title === el.title) {
           listArr[i].listInfo.push({
@@ -51,7 +52,7 @@ export default function NavBar(porps) {
         ],
       });
     });
-    // console.log(listArr)
+    console.log(';',listArr)
     return listArr;
   }
   const handleGoPage = (el) => {

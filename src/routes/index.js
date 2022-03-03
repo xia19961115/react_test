@@ -9,6 +9,7 @@ import About from "@/pages/About"
 import Home from "@/pages/Home"
 import My from '@/pages/My'
 import File from "@/pages/File"
+import Loading from "@/pages/Loading"
 const routes = [
     {
         path:'home',
@@ -37,6 +38,13 @@ const routes = [
         title:'数据库',
         roleId:'1',
         element:<File />
+    },
+    {
+        path:'loading',
+        routeName:'加载',
+        title:'数据库',
+        roleId:'1',
+        element:<Loading />
     }
 ]
 export default routes
