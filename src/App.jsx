@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-03 11:03:21
+ * @LastEditTime: 2022-03-03 20:34:13
  */
 // import './App.less';
 import React, {lazy, Suspense} from 'react';
@@ -11,7 +11,6 @@ import {Route,Routes, Navigate} from 'react-router-dom'
 const Login = lazy(() => import('./pages/Login'));
 const Found404 = lazy(() => import('./pages/Foud404'));
 const Main = lazy(() => import('./pages/Main'));
-// import Home from './pages/Home';
 function App() {
   return (
     <div className="App">
@@ -20,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/main/*' element={<Main />}></Route>
+          <Route path='/404' element={<Found404 />}></Route>
           <Route path='*' element={<Found404 />}></Route>
           <Route path='/' element={<Navigate  to='/main/home'/>}></Route>
         </Routes>
