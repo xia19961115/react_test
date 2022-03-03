@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:40:42
- * @LastEditTime: 2022-03-03 19:48:57
+ * @LastEditTime: 2022-03-03 20:05:35
  */
 import React from "react";
 import { Layout, Menu } from "antd";
@@ -25,8 +25,6 @@ export default function NavBar(porps) {
   console.log('=============', bar);
   const navigate = useNavigate();
   let [arr,setArr] = React.useState([])
-  // let [selected,setSelected] =React.useState(sessionStorage.getItem('bar') ?  sessionStorage.getItem('bar') : '/main/home')
-  // let [openKeys,setOpenKeys] =React.useState(sessionStorage.getItem('openKeys') ?  sessionStorage.getItem('openKeys') : '企业名')
   function arrayTransfer(data) {
     const listArr = [];
     data.forEach((el) => {
