@@ -3,15 +3,12 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-02 18:08:26
+ * @LastEditTime: 2022-03-03 20:37:53
  */
-import About from "../pages/About"
-import Home from "../pages/Home"
+import About from "@/pages/About"
+import Home from "@/pages/Home"
 import My from '@/pages/My'
-import File from "../pages/File"
-// import Welcome from "../pages/Welcome"
-// import Login from "../pages/Login"
-// import {Navigate} from 'react-router-dom'
+import File from "@/pages/File"
 const routes = [
     {
         path:'home',
