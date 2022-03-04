@@ -1,9 +1,9 @@
 import React from 'react'
-import Base from '@/components/Base'
+import CountContainerMin from '@/components/Base'
 const About =() => {
   return (
     <div>
-        <Base />
+        <CountContainerMin />
     </div>
   )
 }
