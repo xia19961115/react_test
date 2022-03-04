@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-03 10:49:27
- * @LastEditTime: 2022-03-04 14:45:45
+ * @LastEditTime: 2022-03-04 15:30:40
  */
 import React from "react";
 import SilderBar from "@/components/SilderBar";
@@ -14,7 +14,6 @@ export default function Main() {
   const [Base,setBase] = React.useState([])
   const [arr,setArr] = React.useState([])
   React.useEffect(()=>{
-    console.log('1231111')
     // 进入权限路由先获取用户权限ID
     const roleList = localStorage.getItem("roleList");
     // 没权限直接进登录页
