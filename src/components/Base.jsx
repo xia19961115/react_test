@@ -5,9 +5,12 @@ import {
   createIncrementAction
 } from '@/redux/actions/countAction'
 const Base =(props) => {
+  const handleIncrement =() => {
+    props.asyncAdd(2,1000)
+  }
   console.log(props);
   return (
-    <div>{props.count}</div>
+    <div onClick={handleIncrement}>{props.count}</div>
   )
 }
 const mapStateToProps = (state) =>{

@@ -3,7 +3,7 @@
 */
 import {INCREMENT} from '../constant'
 // 箭头函数直接返回对象时 要加() 不然会当作返回体来返回
-// 同步action
+// 同步action(返回一般对象为同步操作)
 export const createIncrementAction =data => ({ type:INCREMENT, data }) 
 
 // 明确:延迟的动作不想交给组件自身，想交给action
