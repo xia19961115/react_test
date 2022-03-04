@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 14:25:16
- * @LastEditTime: 2022-03-03 20:44:55
+ * @LastEditTime: 2022-03-04 15:02:20
  */
 import React from "react";
 import { Layout,Breadcrumb } from "antd";
@@ -15,6 +15,7 @@ import NavFooter from "@/components/Nav/Footer";
 const { Content } = Layout;
 
 export default function SilderBar(props) {
+  // console.log(props)
   const {roleRoute, rolePath } = props
   const navigate = useNavigate();
   let [bar,setBar] = React.useState('')
@@ -38,7 +39,8 @@ export default function SilderBar(props) {
   },[pathname])
   return (
     <Layout style={{ height: "100vh" }}>
-      <NavBar path={roleRoute} bar={bar} openkeys={openKeys}/>
+      {/* <NavBar path={roleRoute} bar={bar} openkeys={openKeys}/> */}
+      { roleRoute && bar && (openKeys || !openKeys) && <NavBar path={roleRoute} bar={bar} openkeys={openKeys}/>}
       <Layout>
         <NavHead />
         <Content style={{ margin: "10px 16px 0", overflow: "auto" }}>
