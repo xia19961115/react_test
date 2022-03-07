@@ -3,7 +3,7 @@
  * @Auther: xianing
  * @LastEditors: xianing
  * @Date: 2022-03-01 15:16:25
- * @LastEditTime: 2022-03-02 18:19:37
+ * @LastEditTime: 2022-03-07 11:03:35
  */
 import React from 'react'
 import { Layout } from 'antd';
@@ -21,7 +21,7 @@ export default function NavHead() {
     <Header style={{ padding: 0 ,backgroundColor: "#fff"}}>
       <div className="head">
           <div className='head-btn' onClick={handleQuite}>
-            退出
+          你好,admin 退出
           </div>
       </div>
     </Header>
