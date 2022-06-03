@@ -54,9 +54,14 @@ export default function NavBar(porps) {
     return listArr;
   }
   const handleGoPage = (el) => {
-    sessionStorage.setItem('bar','/main/'+el.path)
-    sessionStorage.setItem('openKeys',el.title)
-    navigate(el.path)
+    const roleList = localStorage.getItem("roleList");
+    if (roleList) {
+      sessionStorage.setItem('bar','/main/'+el.path)
+      sessionStorage.setItem('openKeys',el.title)
+      navigate(el.path)
+    } else {
+      navigate('/login')
+    }
   } 
   React.useEffect(()=>{
     const handleBarInt = ()=> {
