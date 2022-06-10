@@ -6,7 +6,8 @@
  * @LastEditTime: 2022-03-07 14:39:00
  */
 import React from 'react'
-import './index.less'
+// 模块引入LESS
+import style from './index.module.less'
 import { Table } from 'antd';
 const Home = () => {
   const dataSource = [];
@@ -61,8 +62,11 @@ const Home = () => {
       loading = false
     },1000)
   }
+  console.log('--------',style)
   return (
-    <div>
+    <div className={style.Home}>
+      <div className={style.Home}>1231</div>
+      <div className={style['Home-title']}>3333</div>
       <Table 
         dataSource={dataSource}
         loading={loading}
